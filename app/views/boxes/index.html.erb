@@ -1,0 +1,10 @@
+<h1>Your Troves</h1>
+<% @boxes.each do |box| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to box.title, box %>
+      </h4>
+    </div>
+  </div>
+<% end %>
