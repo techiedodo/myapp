@@ -1,8 +1,13 @@
 .jumbotron {
-  margin-top: 50px;
+
   height: 550px;
   background-image: image-url("empty_chair.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.jumbotron p {
+  margin-top: 250px;
+  text-align: center;
 }
