@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
   get 'services' => 'welcome#pricing'
 
+  resources :entries
   resources :boxes do
     resources :journals
   end

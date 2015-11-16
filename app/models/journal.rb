@@ -11,4 +11,5 @@
 
 class Journal < ActiveRecord::Base
   belongs_to :box
+  has_many :entries
 end
