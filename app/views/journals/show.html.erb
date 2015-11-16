@@ -1,2 +1,15 @@
-<h1>Journals#show</h1>
-<p>Find me in app/views/journals/show.html.erb</p>
+<h1><%= @journal.title %></h1>
+
+<div class="row">
+  <div class="col-md-8 well">
+    <p><%= @journal.title %></p>
+      <div class="btn-group" role="group">
+        <%= link_to "New Entry", '#', class: 'btn btn-info btn-xs' %>
+        <%= link_to "View Entries", '#', class: 'btn btn-info btn-xs' %>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <%= link_to "Edit", edit_box_journal_path(@box, @journal), class: 'btn btn-primary btn-sm' %>
+          <%= link_to "Journals", box_journals_path(@box) , class: 'btn btn-primary btn-sm' %>
+  </div>
+</div>

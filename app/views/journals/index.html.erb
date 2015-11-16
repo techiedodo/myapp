@@ -1,2 +1,13 @@
-<h1>Journals#index</h1>
-<p>Find me in app/views/journals/index.html.erb</p>
+<h1>Your Journals</h1>
+<%= link_to "Create Journal", new_box_journal_path(@box), class: 'btn btn-primary btn-xs' %>
+<%= link_to "Trove", box_path(@box), class: 'btn btn-primary btn-xs' %>
+
+<% @jrnl4box.each do |journal| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= link_to journal.title, [@box, journal] %>
+      </h4>
+    </div>
+  </div>
+<% end %>
