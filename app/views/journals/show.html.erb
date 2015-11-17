@@ -4,8 +4,8 @@
   <div class="col-md-8 well">
     <p><%= @journal.title %></p>
       <div class="btn-group" role="group">
-        <%= link_to "New Entry", '#', class: 'btn btn-info btn-xs' %>
-        <%= link_to "View Entries", '#', class: 'btn btn-info btn-xs' %>
+        <%= link_to "New Entry", new_journal_entry_path(@journal, @entry), class: 'btn btn-info btn-xs' %>
+        <%= link_to "View Entries", journal_entries_path(@journal), class: 'btn btn-info btn-xs' %>
       </div>
   </div>
   <div class="col-md-4">

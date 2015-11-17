@@ -1,9 +1,9 @@
 <h1>Your Journals</h1>
-<%= link_to "Create Journal", new_box_journal_path(@box), class: 'btn btn-primary btn-xs' %>
+<%= link_to "Create Journal", new_box_journal_path, class: 'btn btn-primary btn-xs' %>
 <%= link_to "Trove", box_path(@box), class: 'btn btn-primary btn-xs' %>
 
 <% @jrnl4box.each do |journal| %>
-  <div class="media">
+  <div class="media well well-sm">
     <div class="media-body">
       <h4 class="media-heading">
         <%= link_to journal.title, [@box, journal] %>
