@@ -14,4 +14,7 @@ class Entry < ActiveRecord::Base
   belongs_to :journal
 
   default_scope { order('created_at DESC') }
+
+  validates :body, presence: true
+  validates :subject, presence: true
 end

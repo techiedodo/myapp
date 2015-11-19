@@ -13,4 +13,7 @@
 class Box < ActiveRecord::Base
   belongs_to :user
   has_many :journals
+  
+  validates :title, presence: true
+  validates :description, presence: true
 end

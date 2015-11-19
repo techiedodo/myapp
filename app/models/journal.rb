@@ -12,4 +12,6 @@
 class Journal < ActiveRecord::Base
   belongs_to :box
   has_many :entries
+
+  validates :title, presence: true
 end
