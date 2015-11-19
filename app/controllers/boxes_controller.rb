@@ -13,7 +13,7 @@ class BoxesController < ApplicationController
 
   def create
   @box = Box.new(params.require(:box).permit(:title, :description))
-  @box.user = current_user
+  @box.user = current_user #this allows us to create user-specific boxes
     if @box.save
       flash[:notice] = "You successfully built your first trove. Time to fill it withe memories."
       redirect_to @box

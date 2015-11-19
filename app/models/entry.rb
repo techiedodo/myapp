@@ -12,4 +12,6 @@
 
 class Entry < ActiveRecord::Base
   belongs_to :journal
+
+  default_scope { order('created_at DESC') }
 end
