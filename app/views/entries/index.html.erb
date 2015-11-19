@@ -1,6 +1,6 @@
 <h1>Journal Entries</h1>
 <%= link_to "Create Entry", new_journal_entry_path, class: 'btn btn-primary btn-xs' %>
-<%= link_to "Journal", box_journals_path(@journal), class: 'btn btn-primary btn-xs' %>
+<%= link_to "Journal", box_journals_path(@journal.box, @journal), class: 'btn btn-primary btn-xs' %>
 <% @entrys.each do |entry| %>
   <div class="media well well-sm">
     <div class="media-body">

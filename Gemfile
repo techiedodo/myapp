@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'pundit'
 
 gem 'figaro', '1.0'
 

@@ -1,11 +1,10 @@
 class JournalsController < ApplicationController
   def index
     @box = Box.find(params[:box_id])
-    @journals = Journal.all
-    @jrnl4box = @box.journals.all
+    @jrnl4box = @box.journals
   end
 
-  def show
+  def show #<!--can this be done differently?-->
     @box = Box.find(params[:box_id])
     @journal = Journal.find(params[:id])
   end
