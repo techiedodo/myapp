@@ -1,8 +1,8 @@
 class EntriesController < ApplicationController
   def index
     @journal = Journal.find(params[:journal_id])
-    @entries = Entry.all
-    @entrys = @journal.entries.all
+    #@entries = Entry.all
+    @entrys = @journal.entries
   end
 
   def show

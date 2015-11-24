@@ -1,10 +1,11 @@
 class JournalsController < ApplicationController
+before_action :authenticate_user!
   def index
     @box = Box.find(params[:box_id])
     @jrnl4box = @box.journals
   end
 
-  def show #<!--can this be done differently?-->
+  def show #can this be done differently?
     @box = Box.find(params[:box_id])
     @journal = Journal.find(params[:id])
   end

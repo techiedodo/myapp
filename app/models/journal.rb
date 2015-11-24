@@ -11,7 +11,7 @@
 
 class Journal < ActiveRecord::Base
   belongs_to :box
-  has_many :entries
+  has_many :entries, dependent: :destroy
 
   validates :title, presence: true
 end

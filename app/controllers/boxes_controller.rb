@@ -1,4 +1,5 @@
 class BoxesController < ApplicationController
+before_action :authenticate_user!
   def index
     @boxes = policy_scope(Box)
     authorize @boxes
@@ -6,6 +7,8 @@ class BoxesController < ApplicationController
 
   def show
     @box = Box.find(params[:id])
+    @recipient = Recipient.new
+    @recipients = @box.recipients
   end
 
   def new
@@ -40,4 +43,17 @@ class BoxesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @box = Box.find(params[:id])
+
+    if @box.destroy
+      flash[:notice] = "\"#{@box.title}\" was removed successfully."
+      redirect_to boxes_path
+    else
+      flash[:error] = "There was an error deleting the topic."
+      render :show
+    end
+  end
+
 end

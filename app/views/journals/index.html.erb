@@ -1,13 +1,20 @@
 <h1>Your Journals</h1>
-<%= link_to "Create Journal", new_box_journal_path, class: 'btn btn-primary btn-xs' %>
-<%= link_to "Trove", box_path(@box), class: 'btn btn-primary btn-xs' %>
-
-<% @jrnl4box.each do |journal| %>
-  <div class="media well well-sm">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to journal.title, [@box, journal] %>
-      </h4>
-    </div>
+<div class="row well path">
+  <div class="col-md-3">
+    <h4 id="trove_directions">This is where you can curate your journals for a given trove. You can create journals as well as continue to develop journals that you already have.</h4>
+    <%= link_to "Create Journal", new_box_journal_path, class: 'btn btn-primary btn-xs' %>
+    <%= link_to "Trove", box_path(@box), class: 'btn btn-primary btn-xs' %>
   </div>
-<% end %>
+
+  <div class="col-md-6 col-md-offset-1">
+    <% @jrnl4box.each do |journal| %>
+      <div class="media well well-sm">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to journal.title, [@box, journal] %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

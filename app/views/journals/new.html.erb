@@ -1,12 +1,12 @@
 <h1>Your New Journal</h1>
 
- <div class="row">
-   <div class="col-md-4">
-     <p>Guidelines for journals</p>
+ <div class="row well boxes">
+   <div class="col-md-4" id="journal_directions">
+     <h4>Consider the following while developing your journal:</h4>
      <ul>
-       <li>Make sure it rhymes.</li>
-       <li>Don't use the letter "A".</li>
-       <li>The incessant use of hashtags will get you banned.</li>
+       <li>Will this journal be private or shared with others</li>
+       <li>When do you plan to have this journal delivered?</li>
+       <li>What purpose will this journal serve?</li>
      </ul>
    </div>
    <div class="col-md-8">
@@ -17,6 +17,7 @@
        </div>
        <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
+         <%= link_to "Cancel", box_journals_path , class: 'btn btn-danger' %>
        </div>
      <% end %>
    </div>

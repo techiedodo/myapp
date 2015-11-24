@@ -1,3 +1,22 @@
 // Place all the styles related to the Boxes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.boxes {
+  background-image: image-url("trove_background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#trove_directions {
+  text-align: justify;
+  color: white;
+}
+
+.path {
+  background-image: image-url("path.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

@@ -1,22 +1,28 @@
 <br>
 <div class="jumbotron">
-  <p>
-    <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
-    <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
-  </p>
+  <% if user_signed_in? %>
+    <h2 class="signed_in">Tag line when signed in...</h3>
+  <% end %>
+  <% if !user_signed_in? %>
+    <h2 class="signed_out">Tag line when signed out...</h3>
+    <p>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
+    </p>
+  <% end %>
 </div>
 
 <div class="row">
   <div class="col-md-4">
     <h2>Digital FootPrint</h2>
-    <p>Bloccit will deliver food and water to those in need, all over the world.</p>
+    <p>The internet is vast and your presence can be ubiquitous. We give you control over what you want to share.</p>
   </div>
   <div class="col-md-4">
     <h2>Currate your own story</h2>
-    <p>Bloccit will deliver money and education to those in need, all over the world.</p>
+    <p>myApp will let you tel your own story. Share every part of your story, or just select chapters with those you love.</p>
   </div>
   <div class="col-md-4">
     <h2>Say what you need to say</h2>
-    <p>Bloccit will make you better looking: it's scientifically proven to make men look like Ryan Gosling and women look like Shakira.</p>
+    <p>Never leave things unsaid. Give something special without saying a single word.</p>
   </div>
 </div>
