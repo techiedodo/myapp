@@ -29,4 +29,13 @@ before_action :authenticate_user!
       render :show
     end
   end
+
+  def send_recipient_confirmation
+    @recipient = Recipient.find(params[:id])
+    @box = @recipient.box
+
+    RecipientMailer.recipient_confirmation(@recipient).deliver
+    flash[:notice] = "Confirmation sent to #{@recipient.recipient}."
+    redirect_to @box
+  end
 end

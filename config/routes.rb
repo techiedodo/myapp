@@ -13,4 +13,6 @@ Rails.application.routes.draw do
     resources :journals
     resources :recipients, only: [:create, :update, :destroy]
   end
+
+  get :send_recipient_confirmation, to: 'recipients#send_recipient_confirmation', as: :send_recipient_confirmation
 end

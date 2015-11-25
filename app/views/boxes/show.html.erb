@@ -9,9 +9,8 @@
     <%= link_to "Remove Trove", @box, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to remove this trove?' } %>
   </div>
 
-  <div class="col-md-5 col-md-offset-1 well well-sm list">
+  <div class="col-md-4 col-md-offset-1 well well-sm list">
     <p><%= @box.description %></p>
-
       <% if current_user.admin? || current_user.premium? %>
       <div class="btn-group" role="group">
         <%= link_to "Journals", box_journals_path(@box), class: 'btn btn-info btn-sm' %>
@@ -27,38 +26,40 @@
       </div>
       <% end %>
 
-      <%= form_for [@box, @recipient] do |f| %>
-        <div class="form-group">
-          <%= f.label :recipient %>
-          <%= f.text_field :recipient, class: 'form-control', placeholder: "Name of recipient" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control', placeholder: "Please provide email" %>
-        </div>
-        <div class="form-group">
-          <%= f.label "Date of Birth" %>
-          <%= f.text_field :DOB, rows: 8, class: 'form-control', placeholder: "Please provide DOB---Month Day, Year" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit "Save", class: 'btn btn-success btn-sm' %>
-        </div>
-      <% end %>
+      <h5 class="well">
+        Recipient List: <br>
+        <% @recipients.each do |recipient| %>
+          <div class="media">
+            <div class="media-body">
+              <div class="media-heading">
+                <%= recipient.recipient %><br>
+                | <%= link_to "Delete", [@box, recipient], method: :delete %> |
+                <%= link_to "Confirm Recipient", :controller => "recipients", :action => "send_recipient_confirmation", :id => recipient.id %> |
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </h5>
   </div>
 
-  <div class="col-md-3 col-md-offset-1 well well-sm list">
-    <h4>
-      Recipient List: <br>
-      <% @recipients.each do |recipient| %>
-        <div class="media">
-          <div class="media-body">
-            <h5 class="media-heading">
-              <%= recipient.recipient %>
-              | <%= link_to "Delete", [@box, recipient], method: :delete %>
-            </h5>
-          </div>
-        </div>
-      <% end %>
-    </h4>
+  <div class="col-md-4 col-md-offset-1 well well-sm list">
+    <h5>Add Recipients Here:</h5>
+    <%= form_for [@box, @recipient] do |f| %>
+      <div class="form-group">
+        <%= f.label :recipient %>
+        <%= f.text_field :recipient, class: 'form-control', placeholder: "Name of recipient" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control', placeholder: "Please provide email" %>
+      </div>
+      <div class="form-group">
+        <%= f.label "Date of Birth" %>
+        <%= f.text_field :DOB, rows: 8, class: 'form-control', placeholder: "Please provide DOB---Month Day, Year" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Save", class: 'btn btn-success btn-sm' %>
+      </div>
+    <% end %>
   </div>
 </div>
