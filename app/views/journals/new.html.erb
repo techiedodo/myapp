@@ -10,15 +10,6 @@
      </ul>
    </div>
    <div class="col-md-8">
-     <%= form_for [@box, @journal] do |f| %>
-       <div class="form-group">
-         <%= f.label :title %>
-         <%= f.text_field :title, class: 'form-control', placeholder: "Name your journal" %>
-       </div>
-       <div class="form-group">
-         <%= f.submit "Save", class: 'btn btn-success' %>
-         <%= link_to "Cancel", box_journals_path , class: 'btn btn-danger' %>
-       </div>
-     <% end %>
+     <%= render partial: 'form', locals: { box: @box, journal: @journal} %>
    </div>
  </div>

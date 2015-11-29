@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+gem 'carrierwave'
+
+gem 'mini_magick'
+
 gem 'pundit'
 
 gem 'figaro', '1.0'

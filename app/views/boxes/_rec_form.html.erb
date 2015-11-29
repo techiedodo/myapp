@@ -1,0 +1,28 @@
+<%= form_for [box, recipient] do |f| %>
+  <% if recipient.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There are <%= pluralize(recipient.errors.count, "error") %>.</h4>
+      <ul>
+        <% recipient.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_group_tag(recipient.errors[:recipient]) do %>
+    <%= f.label :recipient %>
+    <%= f.text_field :recipient, class: 'form-control', placeholder: "Name of recipient" %>
+  <% end %>
+  <%= form_group_tag(recipient.errors[:email]) do %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: 'form-control', placeholder: "Please provide email" %>
+  <% end %>
+  <%= form_group_tag(recipient.errors[:DOB]) do %>
+    <%= f.label "Date of Birth" %>
+    <%= f.text_field :DOB, rows: 8, class: 'form-control', placeholder: "Please provide DOB---Month Day, Year" %>
+  <% end %>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success btn-sm' %>
+  </div>
+<% end %>

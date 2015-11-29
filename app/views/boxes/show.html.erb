@@ -44,22 +44,6 @@
 
   <div class="col-md-4 col-md-offset-1 well well-sm list">
     <h5>Add Recipients Here:</h5>
-    <%= form_for [@box, @recipient] do |f| %>
-      <div class="form-group">
-        <%= f.label :recipient %>
-        <%= f.text_field :recipient, class: 'form-control', placeholder: "Name of recipient" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :email %>
-        <%= f.email_field :email, class: 'form-control', placeholder: "Please provide email" %>
-      </div>
-      <div class="form-group">
-        <%= f.label "Date of Birth" %>
-        <%= f.text_field :DOB, rows: 8, class: 'form-control', placeholder: "Please provide DOB---Month Day, Year" %>
-      </div>
-      <div class="form-group">
-        <%= f.submit "Save", class: 'btn btn-success btn-sm' %>
-      </div>
-    <% end %>
+    <%= render partial: 'rec_form', locals: { box: @box, recipient: @recipient } %>
   </div>
 </div>

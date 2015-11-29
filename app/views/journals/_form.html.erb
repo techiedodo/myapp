@@ -1,0 +1,21 @@
+<%= form_for [@box, @journal] do |f| %>
+  <% if journal.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There are <%= pluralize(journal.errors.count, "error") %>.</h4>
+      <ul>
+        <% journal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_group_tag(journal.errors[:title]) do %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control', placeholder: "Name your journal" %>
+  <% end %>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+    <%= link_to "Cancel", box_journals_path , class: 'btn btn-danger' %>
+  </div>
+<% end %>
