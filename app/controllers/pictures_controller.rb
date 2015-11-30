@@ -32,4 +32,17 @@ before_action :authenticate_user!
     @box = Box.find(params[:box_id])
     @picture = Picture.find(params[:id])
   end
+
+  def destroy
+    @box = Box.find(params[:box_id])
+    @picture = @box.pictures.find(params[:id])
+
+    if @picture.destroy
+      flash[:notice] = "\"#{@picture.caption}\" was removed successfully."
+      redirect_to box_pictures_path
+    else
+      flash[:error] = "There was an error deleting the topic."
+      render :show
+    end
+  end
 end

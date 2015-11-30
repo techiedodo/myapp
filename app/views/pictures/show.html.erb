@@ -1,6 +1,11 @@
 <div class="row pic_show">
-  <div class="col-md-8 col-md-offset-2 well well-sm">
+  <div class="col-md-8 col-md-offset-2 well well-sm text-center">
     <p><%= image_tag @picture.photo.medium, class: 'img-responsive center-block' %></p>
     <h3>Caption: <%= @picture.caption %></h3>
+      <div class="btn-group" role="group">
+        <%= link_to "New Picture", new_box_picture_path, class: 'btn btn-info btn-xs' %>
+        <%= link_to "Remove Picture", [@box, @picture], method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure you want to remove this picture?' } %>
+        <%= link_to "View Pictures", box_pictures_path, class: 'btn btn-info btn-xs' %>
+      </div>
   </div>
 </div>
