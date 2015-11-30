@@ -1,6 +1,5 @@
 .jumbotron {
-
-  height: 650px;
+  //min-height: 550px;
   background-image: image-url("empty_chair.jpg");
   background-size: cover;
   background-position: center;
@@ -8,15 +7,19 @@
 }
 
 .signed_out {
-  margin-top: 250px;
+  margin-top: 300px;
   text-align: center;
+  padding-bottom: 60px;
 }
 
 .jumbotron p {
+  margin-top: -50px;
+  padding-bottom: 40px;
   text-align: center;
 }
 
 .signed_in {
-  margin-top: 250px;
+  margin-top: 350px;
+  padding-bottom: 60px;
   text-align: center;
 }
