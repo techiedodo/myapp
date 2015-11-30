@@ -1,0 +1,26 @@
+<%= form_for [box, picture] do |f| %>
+  <% if picture.errors.any? %>
+    <div class="alert alert-danger">
+      <h4>There are <%= pluralize(picture.errors.count, "error") %>.</h4>
+      <ul>
+        <% picture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_group_tag(picture.errors[:title]) do %>
+    <%= f.label :caption %>
+    <%= f.text_area :caption, class: 'form-control', placeholder: "Add a caption or description to your picture" %>
+  <% end %>
+  <%= form_group_tag(picture.errors[:photo]) do %>
+    <%= f.label "Please select your picture" %>
+    <%= f.file_field :photo %>
+    <%= f.hidden_field :photo_cache %>
+  <% end %>
+  <div class="form-group">
+    <%= f.submit "Save", class: 'btn btn-success' %>
+    <%= link_to "Cancel", box_pictures_path , class: 'btn btn-danger' %>
+  </div>
+<% end %>

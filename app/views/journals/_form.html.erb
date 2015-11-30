@@ -1,4 +1,4 @@
-<%= form_for [@box, @journal] do |f| %>
+<%= form_for [box, journal] do |f| %>
   <% if journal.errors.any? %>
     <div class="alert alert-danger">
       <h4>There are <%= pluralize(journal.errors.count, "error") %>.</h4>

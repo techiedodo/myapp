@@ -12,6 +12,7 @@
 
 class Box < ActiveRecord::Base
   belongs_to :user
+  has_many :pictures, dependent: :destroy
   has_many :journals, dependent: :destroy
   has_many :recipients, dependent: :destroy
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :boxes do
     resources :journals
+    resources :pictures
     resources :recipients, only: [:create, :update, :destroy]
   end
 

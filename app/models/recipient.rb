@@ -7,7 +7,7 @@
 #  email      :string
 #  DOB        :date
 #  user_id    :integer
-#  trove_id   :integer
+#  box_id     :integer
 #  accepted   :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null

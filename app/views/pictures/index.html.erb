@@ -1,0 +1,27 @@
+<h1>Your Picture Gallery</h1>
+<div class="row well path">
+  <div class="col-md-3">
+    <h4 id="trove_directions">This is where you can curate your pictures for a given trove. You can add pictures as well as remove pictures that you already have added.</h4>
+    <%= link_to "Add Pictures", new_box_picture_path, class: 'btn btn-primary btn-xs' %>
+    <%= link_to "Trove", box_path(@box), class: 'btn btn-primary btn-xs' %>
+  </div>
+
+  <div class="col-md-6 col-md-offset-1">
+    <% @pictures.each do |pic| %>
+          <table class="table table-hover well">
+            <thead>
+              <tr>
+                <th class="col-md-6">Caption</th>
+                <th class="col-md-6">Thumbnail</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><%= pic.caption %></td>
+                <td><%= link_to image_tag(pic.photo.thumb.url), [@box, pic] %></td>
+              </tr>
+            </tbody>
+          </table>
+    <% end %>
+  </div>
+</div>

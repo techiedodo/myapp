@@ -18,7 +18,7 @@ before_action :authenticate_user!
   def create
     @box = Box.find(params[:box_id])
     @journal = Journal.new(params.require(:journal).permit(:title, :entry))
-    @journal.box= @box
+    @journal.box = @box
     if @journal.save
       flash[:notice] = "You successfully started your Journal"
       redirect_to [@box, @journal]
