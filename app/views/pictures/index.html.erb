@@ -18,7 +18,7 @@
             <tbody>
               <tr>
                 <td><%= pic.caption %></td>
-                <td><%= link_to image_tag(pic.photo.thumb.url), [@box, pic] %></td>
+                <td><%= link_to image_tag(pic.photo.thumb.url), [@box, pic], class: 'img-responsive center-block' %></td>
               </tr>
             </tbody>
           </table>
