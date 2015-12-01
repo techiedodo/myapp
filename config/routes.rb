@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'about' => 'welcome#about'
   get 'services' => 'welcome#pricing'
 
+  resources :subscribers, only: [:new, :create]
+
   resources :journals, only: [] do
     resources :entries
   end

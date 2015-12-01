@@ -21,7 +21,7 @@ before_action :authenticate_user!
   @box.user = current_user #this allows us to create user-specific boxes
   authorize @box
     if @box.save
-      flash[:notice] = "You successfully built your first trove. Time to fill it withe memories."
+      flash[:notice] = "You successfully built your first trove. Time to fill it with memories."
       redirect_to @box
     else
       flash[:error] = "We were not able to build your trove successfully. Please try again."
