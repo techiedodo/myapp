@@ -3,20 +3,7 @@ before_action :authenticate_user!
   def create
     @box = Box.find(params[:box_id])
     @recipient = Recipient.new(recipient_params)
-
-    user
-    user_search = User.where(email: recipient_params[:email])
-    if user_search.count == 0
-      user = User.new(
-        name:     recipient_params[:name],
-        email:    recipient_params[:email],
-        password: recipient_params[:DOB].strftime("%m%e%y")
-      )
-      user.save!
-    else
-      user = user_search.first
-    end
-    @recipient.user = user
+    @recipient.user = current_user
     @recipient.box = @box
     if @recipient.save
       #flash[:notice] = "You successfully entered your recipient"
