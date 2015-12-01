@@ -20,7 +20,7 @@
   <% end %>
   <%= form_group_tag(recipient.errors[:DOB]) do %>
     <%= f.label "Date of Birth" %>
-    <%= f.text_field :DOB, rows: 8, class: 'form-control', placeholder: "Please provide DOB---Month Day, Year" %>
+    <%= f.date_select :DOB, class: 'form-control', use_short_month: true, start_year: 1915, end_year: 2015, order: [:month, :day, :year] %>
   <% end %>
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success btn-sm' %>

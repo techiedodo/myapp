@@ -2,7 +2,7 @@ class RecipientsController < ApplicationController
 before_action :authenticate_user!
   def create
     @box = Box.find(params[:box_id])
-    @recipient = Recipient.new(params.require(:recipient).permit(:recipient, :email, :DOB))
+    @recipient = Recipient.new(recipient_params)
     @recipient.user = current_user
     @recipient.box = @box
     if @recipient.save
@@ -37,5 +37,11 @@ before_action :authenticate_user!
     RecipientMailer.recipient_confirmation(@recipient).deliver
     flash[:notice] = "Confirmation sent to #{@recipient.recipient}."
     redirect_to @box
+  end
+
+  private
+
+  def recipient_params
+    params.require(:recipient).permit(:recipient, :email, :DOB)
   end
 end

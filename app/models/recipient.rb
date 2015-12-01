@@ -19,5 +19,5 @@ class Recipient < ActiveRecord::Base
 
   validates :recipient, presence: true
   validates :DOB, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: { scope: :box_id} #allows email to be used only once per trove
 end
