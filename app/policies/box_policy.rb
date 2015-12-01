@@ -8,7 +8,7 @@ class BoxPolicy < ApplicationPolicy
       if !user.blank? && (user.admin?)
         scope.all
       else
-        scope.where(user: user)
+        scope.where(user: user || box.recipients.includes?(@recipient)) #can i change this to include recipient? 
       end
     end
   end
