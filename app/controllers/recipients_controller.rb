@@ -4,13 +4,13 @@ before_action :authenticate_user!
     @box = Box.find(params[:box_id])
     @recipient = Recipient.new(recipient_params)
 
-    user
     user_search = User.where(email: recipient_params[:email])
+
     if user_search.count == 0
       user = User.new(
         name:     recipient_params[:name],
         email:    recipient_params[:email],
-        password: recipient_params[:DOB].strftime("%m%e%y")
+        password: "#{recipient_params['DOB(1i)']}#{recipient_params['DOB(2i)']}#{recipient_params['DOB(3i)']}}"
       )
       user.save!
     else

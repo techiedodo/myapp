@@ -21,8 +21,6 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  membership             :integer          default(0)
-#  subscribed             :boolean
-#  stripeid               :string
 #
 
 class User < ActiveRecord::Base

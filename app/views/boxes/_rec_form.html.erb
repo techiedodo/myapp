@@ -10,9 +10,9 @@
     </div>
   <% end %>
 
-  <%= form_group_tag(recipient.errors[:recipient]) do %>
-    <%= f.label :recipient %>
-    <%= f.text_field :recipient, class: 'form-control', placeholder: "Name of recipient" %>
+  <%= form_group_tag(recipient.errors[:name]) do %>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control', placeholder: "Name of recipient" %>
   <% end %>
   <%= form_group_tag(recipient.errors[:email]) do %>
     <%= f.label :email %>
@@ -20,7 +20,7 @@
   <% end %>
   <%= form_group_tag(recipient.errors[:DOB]) do %>
     <%= f.label "Date of Birth" %>
-    <%= f.text_field :DOB, rows: 8, class: 'form-control', placeholder: "Please provide DOB---Month Day, Year" %>
+    <%= f.date_select :DOB, use_short_month: true, start_year: 1915, end_year: 2015 %>
   <% end %>
   <div class="form-group">
     <%= f.submit "Save", class: 'btn btn-success btn-sm' %>
