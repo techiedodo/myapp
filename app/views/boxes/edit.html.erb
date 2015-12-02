@@ -1,15 +1,15 @@
 <h1>Edit your Trove</h1>
 
 <div class="row well trove_main">
-  <div class="col-md-4" id="journal_directions">
-    <h4>Guidelines for troves</h4>
-    <h5><ul>
+  <div class="col-md-3" id="journal_directions">
+    <h3>Guidelines for troves</h3>
+    <h4><ul>
       <li>Make sure it rhymes.</li>
       <li>Don't use the letter "A".</li>
       <li>The incessant use of hashtags will get you banned.</li>
-    </ul></h5>
+    </ul></h4>
   </div>
-  <div class="col-md-8 well">
+  <div class="col-md-8 col-md-offset-1 well">
     <%= render partial: 'form', locals: { box: @box } %>
   </div>
 </div>
