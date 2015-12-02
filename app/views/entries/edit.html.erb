@@ -1,2 +1,15 @@
-<h1>Entries#edit</h1>
-<p>Find me in app/views/entries/edit.html.erb</p>
+<h1>Edit your Entry</h1>
+
+<div class="row well edit_back">
+  <div class="col-md-3" id="journal_directions">
+    <h3>Guidelines for Entry</h3>
+    <h4><ul>
+      <li>Make sure it rhymes.</li>
+      <li>Don't use the letter "A".</li>
+      <li>The incessant use of hashtags will get you banned.</li>
+    </ul></h4>
+  </div>
+  <div class="col-md-8 col-md-offset-1 well">
+    <%= render partial: 'form', locals: { journal: @journal, entry: @entry} %>
+  </div>
+</div>

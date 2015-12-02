@@ -1,14 +1,13 @@
-<br>
 <div class="jumbotron  img-responsive">
   <% if user_signed_in? %>
-    <h2 class="signed_in">Tag line when signed in...</h3>
+  <h2 class="signed_in">Tag line when signed in...</h2>
   <% end %>
   <% if !user_signed_in? %>
-    <h2 class="signed_out">Tag line when signed out...</h3>
-    <p>
-      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
-    </p>
+  <h2 class="signed_out">Tag line when signed out...</h2>
+  <p>
+    <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary' %> or
+    <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
+  </p>
   <% end %>
 </div>
 
@@ -18,8 +17,8 @@
     <p>The internet is vast and your presence can be ubiquitous. We give you control over what you want to share.</p>
   </div>
   <div class="col-md-4">
-    <h2>Currate your own story</h2>
-    <p>myApp will let you tel your own story. Share every part of your story, or just select chapters with those you love.</p>
+    <h2>Currate your story</h2>
+    <p>myApp will let you tell your own story. Share every part of your story, or just select chapters with those you love.</p>
   </div>
   <div class="col-md-4">
     <h2>Say what you need to say</h2>

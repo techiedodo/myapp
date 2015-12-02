@@ -10,19 +10,6 @@
      </ul>
    </div>
    <div class="col-md-8 well">
-     <%= form_for [@journal, @entry] do |f| %>
-       <div class="form-group">
-         <%= f.label :subject %>
-         <%= f.text_field :subject, class: 'form-control', placeholder: "What's the subject?" %>
-       </div>
-       <div class="form-group">
-         <%= f.label :body %>
-         <%= f.text_area :body, class: 'form-control', placeholder: "Type away..." %>
-       </div>
-       <div class="form-group">
-         <%= f.submit "Save", class: 'btn btn-success' %>
-         <%= link_to "Cancel", journal_entries_path , class: 'btn btn-danger' %>
-       </div>
-     <% end %>
+     <%= render partial: 'form', locals: { journal: @journal, entry: @entry } %>
    </div>
  </div>
