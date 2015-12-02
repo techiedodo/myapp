@@ -79,5 +79,4 @@ Rails.application.configure do
 
   # https://myfootprint.herokuapp.com
    config.action_mailer.default_url_options = { host: 'myfootprint.herokuapp.com' }
- end
 end
