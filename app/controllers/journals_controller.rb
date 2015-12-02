@@ -21,7 +21,7 @@ before_action :authenticate_user!
     @journal.box = @box
     if @journal.save
       flash[:notice] = "You successfully started your Journal"
-      redirect_to [@box, @journal]
+      redirect_to box_journals_path
     else
       flash[:error] = "We had a problem starting your journal. Please try again."
       render :new
@@ -37,8 +37,8 @@ before_action :authenticate_user!
     @box = Box.find(params[:box_id])
     @journal = Journal.find(params[:id])
     if @journal.update_attributes(params.require(:journal).permit(:title, :entry))
-      flash[:notice] = "You have undated your journal successfully"
-      redirect_to [@box, @journal]
+      flash[:notice] = "You have updated your journal successfully"
+      redirect_to box_journals_path
     else
       flash[:error] = "We had a problem updating your journal. Please try again."
       render :edit
