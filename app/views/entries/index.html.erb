@@ -1,13 +1,15 @@
 <h1>Journal Entries</h1>
-<%= link_to "Create Entry", new_journal_entry_path, class: 'btn btn-primary btn-xs' %>
-<%= link_to "All Journals", box_journals_path(@journal.box), class: 'btn btn-primary btn-xs' %>
-<% @entrys.each do |entry| %>
-  <div class="media well well-sm">
-    <div class="media-body">
-      <h4 class="media-heading">
-        <%= link_to entry.subject, [@journal, entry] %>
-      </h4>
+<div class="row well journal_index">
+  <%= link_to "Create Entry", new_journal_entry_path, class: 'btn btn-primary btn-xs' %>
+  <%= link_to "All Journals", box_journals_path(@journal.box), class: 'btn btn-primary btn-xs' %>
+  <% @entrys.each do |entry| %>
+    <div class="media well well-sm">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= entry.subject%>:
+          <%= link_to truncate(entry.body), [@journal, entry] %>
+        </h4>
+      </div>
     </div>
-  </div>
-<% end %>
-<%= params %>
+  <% end %>
+</div>

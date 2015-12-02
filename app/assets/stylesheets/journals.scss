@@ -6,3 +6,11 @@
   text-align: justify;
   color: white;
 }
+
+.journal_index {
+  background-image: image-url("journal.png");
+  min-height: 500px !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

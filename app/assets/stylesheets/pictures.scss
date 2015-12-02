@@ -9,3 +9,15 @@
 .btn-center {
   display: inline-block;
 }
+
+.pic_back {
+  background-image: image-url("camera.png");
+  min-height: 500px !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#pic_table {
+  margin-top: 20px;
+}

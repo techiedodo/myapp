@@ -1,12 +1,15 @@
-<div class="row well boxes">
-  <div class="col-md-4" id="journal_directions">
+<h2>Add picture here</h2>
+<div class="row well pic_show pic_back">
+  <div class="col-md-3" id="journal_directions">
     <h4>Consider the following while adding your pictures:</h4>
-    <ul>
-      <li>Will this picture be private or shared with others</li>
-      <li>What purpose will this picture serve?</li>
-    </ul>
+    <h5>
+      <ul>
+        <li>Will this picture be private or shared with others</li>
+        <li>What purpose will this picture serve?</li>
+      </ul>
+    </h5>
   </div>
-  <div class="col-md-8 well">
+  <div class="col-md-8 col-md-offset-1 well">
     <%= render partial: 'form', locals: { box: @box, picture: @picture} %>
   </div>
 </div>

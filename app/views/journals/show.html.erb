@@ -1,15 +1,15 @@
 <h1><%= @journal.title %></h1>
 
-<div class="row">
-  <div class="col-md-8 well">
+<div class="row well journal_index">
+  <div class="col-md-7 col-md-offset-1 well">
     <p><%= @journal.title %></p>
       <div class="btn-group" role="group">
         <%= link_to "New Entry", new_journal_entry_path(@journal, @entry), class: 'btn btn-info btn-xs' %>
         <%= link_to "View Entries", journal_entries_path(@journal), class: 'btn btn-info btn-xs' %>
       </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-3 col-md-offset-1">
       <%= link_to "Edit", edit_box_journal_path(@box, @journal), class: 'btn btn-primary btn-sm' %>
-          <%= link_to "Journals", box_journals_path(@box) , class: 'btn btn-primary btn-sm' %>
+      <%= link_to "Journals", box_journals_path(@box) , class: 'btn btn-primary btn-sm' %>
   </div>
 </div>
