@@ -1,11 +1,16 @@
+
 <h1><%= @entry.subject %></h1>
+<div class="row well journal_index">
+    <div class="col-md-10 col-md-offset-1">
+    <%= link_to "All Journals", box_journals_path(@journal.box), class: 'btn btn-primary btn-xs' %>
+    <%= link_to "Entries", journal_entries_path(@journal), class: 'btn btn-primary btn-xs' %>
 
-<div class="row">
-  <div class="col-md-8 well well-sm">
-    <p><%= @entry.body %></p>
-
-  </div>
-  <div class="col-md-4">
-
-  </div>
+    <div class="media well">
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= @entry.body %>
+        </h4>
+      </div>
+    </div>
+    </div>
 </div>

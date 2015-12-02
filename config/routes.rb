@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   end
 
   resources :boxes do
-    resources :journals
+    resources :journals, except: [:show]
     resources :pictures
     resources :recipients, only: [:create, :update, :destroy]
   end
