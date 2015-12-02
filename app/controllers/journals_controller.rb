@@ -44,4 +44,17 @@ before_action :authenticate_user!
       render :edit
     end
   end
+
+  def destroy
+    @box = Box.find(params[:box_id])
+    @journal = Journal.find(params[:id])
+
+    if @journal.destroy
+      flash[:notice] = "\"#{@journal.title}\" was removed successfully."
+      redirect_to box_journals_path
+    else
+      flash[:error] = "There was an error deleting the journal. Please try again."
+      render :show
+    end
+  end
 end

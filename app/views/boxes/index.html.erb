@@ -10,7 +10,8 @@
       <div class="media well well-sm">
         <div class="media-body">
           <h4 class="media-heading">
-            <%= link_to box.title, box %>
+            <%= link_to box.title, box, class: 'col-md-9' %>
+            <%= link_to "Delete Trove", box, method: :delete, class: 'btn btn-danger btn-xs col-md-2 col-md-offset-1', data: { confirm: 'Are you sure you want to delete this Trove?' } %>
           </h4>
         </div>
       </div>

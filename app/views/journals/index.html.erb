@@ -12,9 +12,10 @@
         <div class="media-body">
           <h4 class="media-heading">
             <%= journal.title %>
-              <h6><%= link_to "New Entry", new_journal_entry_path(journal, @entry)%> |
+              <h6 class="col-md-9"><%= link_to "New Entry", new_journal_entry_path(journal, @entry)%> |
               <%= link_to "View Entries", journal_entries_path(journal)%> |
               <%= link_to "Edit Journal", edit_box_journal_path(@box, journal)%></h6>
+              <h6 class="col-md-3"><%= link_to "Delete Journal", [@box, journal], method: :delete, class: 'btn btn-danger btn-xs', data: { confirm: 'Are you sure you want to delete this journal?' } %></h6>
           </h4>
         </div>
       </div>
