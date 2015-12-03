@@ -15,6 +15,7 @@ class Box < ActiveRecord::Base
   has_many :pictures, dependent: :destroy
   has_many :journals, dependent: :destroy
   has_many :recipients, dependent: :destroy
+  has_many :recipient_users, through: :recipients, source: :user
 
   validates :title, presence: true
   validates :description, presence: true

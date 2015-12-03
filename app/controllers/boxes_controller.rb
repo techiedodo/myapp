@@ -3,6 +3,7 @@ before_action :authenticate_user!
   def index
     @boxes = policy_scope(Box)
     authorize @boxes
+    @received_boxes = current_user.received_boxes
   end
 
   def show

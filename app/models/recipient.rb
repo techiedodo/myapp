@@ -3,7 +3,7 @@
 # Table name: recipients
 #
 #  id         :integer          not null, primary key
-#  recipient  :string
+#  name       :string
 #  email      :string
 #  DOB        :date
 #  user_id    :integer

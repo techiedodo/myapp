@@ -21,8 +21,6 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  membership             :integer          default(0)
-#  subscribed             :boolean
-#  stripeid               :string
 #
 
 class User < ActiveRecord::Base
@@ -31,6 +29,7 @@ class User < ActiveRecord::Base
   enum membership: [:basic, :premium, :admin]
   has_many :boxes, dependent: :destroy
   has_many :recipients, dependent: :destroy
+  has_many :received_boxes, through: :recipients, source: :box
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable

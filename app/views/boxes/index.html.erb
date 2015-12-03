@@ -6,7 +6,21 @@
   </div>
 
   <div class="col-md-7 col-md-offset-1">
+    <h2>Boxes</h2>
     <% @boxes.each do |box| %>
+      <div class="row media well well-sm">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to box.title, box, class: 'col-xs-9 col-md-9' %>
+            <%= link_to "Delete Trove", box, method: :delete, class: 'btn btn-danger btn-xs col-xs-3 col-md-2 col-md-offset-1', data: { confirm: 'Are you sure you want to delete this Trove?' } %>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-md-7 col-md-offset-1">
+    <h2>Received Boxes</h2>
+    <% @received_boxes.each do |box| %>
       <div class="row media well well-sm">
         <div class="media-body">
           <h4 class="media-heading">
