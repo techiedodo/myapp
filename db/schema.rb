@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20151201061444) do
   add_index "pictures", ["box_id"], name: "index_pictures_on_box_id"
 
   create_table "recipients", force: :cascade do |t|
-    t.string   "recipient"
+    t.string   "name"
     t.string   "email"
     t.date     "DOB"
     t.integer  "user_id"

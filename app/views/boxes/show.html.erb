@@ -31,7 +31,7 @@
           <div class="media">
             <div class="media-body">
               <div class="media-heading">
-                <%= recipient.recipient %><br>
+                <%= recipient.name %><br>
                 | <%= link_to "Delete", [@box, recipient], method: :delete %> |
                 <%= link_to "Confirm Recipient", :controller => "recipients", :action => "send_recipient_confirmation", :id => recipient.id %> |
               </div>

@@ -1,9 +1,23 @@
 class RecipientsController < ApplicationController
 before_action :authenticate_user!
+
   def create
     @box = Box.find(params[:box_id])
     @recipient = Recipient.new(recipient_params)
-    @recipient.user = current_user
+
+    user_search = User.where(email: recipient_params[:email])
+
+    if user_search.count == 0
+      user = User.new(
+        name:     recipient_params[:name],
+        email:    recipient_params[:email],
+        password: "#{recipient_params['DOB(1i)']}#{recipient_params['DOB(2i)']}#{recipient_params['DOB(3i)']}15"
+      )
+      user.save!
+    else
+      user = user_search.first
+    end
+    @recipient.user = user
     @recipient.box = @box
     if @recipient.save
       #flash[:notice] = "You successfully entered your recipient"
@@ -22,7 +36,7 @@ before_action :authenticate_user!
     @recipient = @box.recipients.find(params[:id])
 
     if @recipient.destroy
-      flash[:notice] = "\"#{@recipient.recipient}\" was removed successfully."
+      flash[:notice] = "\"#{@recipient.name}\" was removed successfully."
       redirect_to @box
     else
       flash[:error] = "There was an error deleting the topic."
@@ -35,13 +49,13 @@ before_action :authenticate_user!
     @box = @recipient.box
 
     RecipientMailer.recipient_confirmation(@recipient).deliver
-    flash[:notice] = "Confirmation sent to #{@recipient.recipient}."
+    flash[:notice] = "Confirmation sent to #{@recipient.name}."
     redirect_to @box
   end
 
   private
 
   def recipient_params
-    params.require(:recipient).permit(:recipient, :email, :DOB)
+    params.require(:recipient).permit(:name, :email, :DOB)
   end
 end
